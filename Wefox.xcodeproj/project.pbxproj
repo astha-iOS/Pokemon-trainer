@@ -61,6 +61,7 @@
 		070CE2FF2715D2C0001C8429 /* PokemonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailView.swift; sourceTree = "<group>"; };
 		070CE3022715EC89001C8429 /* CommanClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommanClass.swift; sourceTree = "<group>"; };
 		070CE304271609D2001C8429 /* .gitignore.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = .gitignore.md; sourceTree = "<group>"; };
+		070CE30527160AAF001C8429 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +92,7 @@
 		070CE2B82715937D001C8429 = {
 			isa = PBXGroup;
 			children = (
+				070CE30527160AAF001C8429 /* README.md */,
 				070CE304271609D2001C8429 /* .gitignore.md */,
 				070CE2C32715937D001C8429 /* Wefox */,
 				070CE2D92715937E001C8429 /* WefoxTests */,
