@@ -10,7 +10,7 @@ import Foundation
 class ApiCall {
 
     func findPokemonApi(randomNumber:Int,completion:@escaping (Pokemon) -> ()) {
-        guard let url = URL(string: "https://pokeapi.co/api/v2/pokemon/\(randomNumber)") else {
+        guard let url = URL(string: "https://pokeapi.co/api/v2/pokemon/\(1)") else {
             print("Invalid url...")
             return
         }

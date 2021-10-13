@@ -12,13 +12,12 @@ import CoreData
 
 struct BackPackView: View {
     
-    @Environment(\.managedObjectContext) private var viewContext
-
-    
     @FetchRequest(entity: Item.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Item.order, ascending: true)],predicate: NSPredicate(format: "id != %d", -1))
     
     private var pokemonArray: FetchedResults<Item>
+    
     private var pokemon_id: Int?
+    
     @State private var isActive = false
     
     var body: some View {
@@ -57,13 +56,7 @@ struct BackPackView: View {
             
     }
     
-//    func isExist(idd: Int) -> Bool {
-//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
-//        fetchRequest.predicate = NSPredicate(format: "id = %d", argumentArray: idd)
-//
-//        let res = try! viewContext.fetch(fetchRequest)
-//        return res.count > 0 ? true : false
-//    }
+    
     
 }
 

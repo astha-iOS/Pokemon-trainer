@@ -14,6 +14,7 @@ struct CatchView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.presentationMode) var presentationMode
     @State private var isActive = false
+   
      
     let pokemon:Pokemon
     
@@ -67,20 +68,25 @@ struct CatchView: View {
     
     //MARK:- Catch It
     private func catchIt() {
-        isActive = true
-        let newItem = Item(context: viewContext)
-        newItem.id = Int16(pokemon.id)
-        newItem.name = pokemon.name
-        newItem.weight = Int16(pokemon.weight)
-        newItem.height = Int16(pokemon.height)
-        newItem.base_experience = Int16(pokemon.base_experience)
-        newItem.front_default = pokemon.sprites.front_default
-        newItem.order = Int16(pokemon.order)
-        do {
-            try viewContext.save()
-            print("catch pokemon.")
-        } catch {
-            print(error.localizedDescription)
+        if !(isExist(id: 1)){
+            
+            isActive = true
+            let newItem = Item(context: viewContext)
+            newItem.id = Int16(pokemon.id)
+            newItem.name = pokemon.name
+            newItem.weight = Int16(pokemon.weight)
+            newItem.height = Int16(pokemon.height)
+            newItem.base_experience = Int16(pokemon.base_experience)
+            newItem.front_default = pokemon.sprites.front_default
+            newItem.order = Int16(pokemon.order)
+            do {
+                try viewContext.save()
+                print("catch pokemon.")
+            } catch {
+                print(error.localizedDescription)
+            }
+        }else{
+            print("alread catch")
         }
     }
     
@@ -88,7 +94,13 @@ struct CatchView: View {
     private func leaveIt() {
         self.presentationMode.wrappedValue.dismiss()
     }
-    
+
+    func isExist(id: Int) -> Bool {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
+        fetchRequest.predicate = NSPredicate(format: "id = %d", id)
+        let res = try! viewContext.fetch(fetchRequest)
+        return res.count > 0 ? true : false
+    }
     
 }
 
