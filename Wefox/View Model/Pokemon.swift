@@ -14,6 +14,7 @@ struct Pokemon: Codable, Identifiable {
     var weight: Int
     var height: Int
     var base_experience: Int
+    var order:Int
     var sprites: Sprites
     
 }

@@ -20,8 +20,9 @@
 		070CE2F8271594CF001C8429 /* ApiCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE2F7271594CF001C8429 /* ApiCall.swift */; };
 		070CE2FA271594DB001C8429 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE2F9271594DB001C8429 /* Pokemon.swift */; };
 		070CE2FE27159FAA001C8429 /* BackPackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE2FD27159FAA001C8429 /* BackPackView.swift */; };
-		070CE3002715D2C0001C8429 /* PokemonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE2FF2715D2C0001C8429 /* PokemonDetailView.swift */; };
-		070CE3032715EC89001C8429 /* CommanClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE3022715EC89001C8429 /* CommanClass.swift */; };
+		070CE3032715EC89001C8429 /* CommanUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE3022715EC89001C8429 /* CommanUse.swift */; };
+		0753FBB127171226000F96D4 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0753FBB027171226000F96D4 /* DetailView.swift */; };
+		0753FBB3271712F2000F96D4 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0753FBB2271712F2000F96D4 /* Alert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,10 +59,11 @@
 		070CE2F7271594CF001C8429 /* ApiCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiCall.swift; sourceTree = "<group>"; };
 		070CE2F9271594DB001C8429 /* Pokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		070CE2FD27159FAA001C8429 /* BackPackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackPackView.swift; sourceTree = "<group>"; };
-		070CE2FF2715D2C0001C8429 /* PokemonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailView.swift; sourceTree = "<group>"; };
-		070CE3022715EC89001C8429 /* CommanClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommanClass.swift; sourceTree = "<group>"; };
+		070CE3022715EC89001C8429 /* CommanUse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommanUse.swift; sourceTree = "<group>"; };
 		070CE304271609D2001C8429 /* .gitignore.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = .gitignore.md; sourceTree = "<group>"; };
 		070CE30527160AAF001C8429 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		0753FBB027171226000F96D4 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		0753FBB2271712F2000F96D4 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +123,7 @@
 				070CE2F3271593B9001C8429 /* SearchView.swift */,
 				070CE2F52715947D001C8429 /* CatchView.swift */,
 				070CE2FD27159FAA001C8429 /* BackPackView.swift */,
-				070CE2FF2715D2C0001C8429 /* PokemonDetailView.swift */,
+				0753FBB027171226000F96D4 /* DetailView.swift */,
 				070CE2C82715937E001C8429 /* Assets.xcassets */,
 				070CE2CD2715937E001C8429 /* Persistence.swift */,
 				070CE2CF2715937E001C8429 /* Wefox.xcdatamodeld */,
@@ -174,7 +176,8 @@
 		070CE3012715EC64001C8429 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				070CE3022715EC89001C8429 /* CommanClass.swift */,
+				070CE3022715EC89001C8429 /* CommanUse.swift */,
+				0753FBB2271712F2000F96D4 /* Alert.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -195,6 +198,8 @@
 			dependencies = (
 			);
 			name = Wefox;
+			packageProductDependencies = (
+			);
 			productName = Wefox;
 			productReference = 070CE2C12715937D001C8429 /* Wefox Pokédex.app */;
 			productType = "com.apple.product-type.application";
@@ -267,6 +272,8 @@
 				Base,
 			);
 			mainGroup = 070CE2B82715937D001C8429;
+			packageReferences = (
+			);
 			productRefGroup = 070CE2C22715937D001C8429 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -310,13 +317,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				070CE2F62715947D001C8429 /* CatchView.swift in Sources */,
-				070CE3032715EC89001C8429 /* CommanClass.swift in Sources */,
-				070CE3002715D2C0001C8429 /* PokemonDetailView.swift in Sources */,
+				070CE3032715EC89001C8429 /* CommanUse.swift in Sources */,
 				070CE2FA271594DB001C8429 /* Pokemon.swift in Sources */,
 				070CE2F4271593B9001C8429 /* SearchView.swift in Sources */,
+				0753FBB127171226000F96D4 /* DetailView.swift in Sources */,
 				070CE2CE2715937E001C8429 /* Persistence.swift in Sources */,
 				070CE2F8271594CF001C8429 /* ApiCall.swift in Sources */,
 				070CE2FE27159FAA001C8429 /* BackPackView.swift in Sources */,
+				0753FBB3271712F2000F96D4 /* Alert.swift in Sources */,
 				070CE2C52715937D001C8429 /* WefoxApp.swift in Sources */,
 				070CE2D12715937E001C8429 /* Wefox.xcdatamodeld in Sources */,
 			);
@@ -413,6 +421,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = "";
 			};
 			name = Debug;
 		};
@@ -467,6 +476,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

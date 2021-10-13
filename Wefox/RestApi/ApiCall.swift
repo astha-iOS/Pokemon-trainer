@@ -34,14 +34,14 @@ class ApiCall {
             }
             
             do{
-                let result = try! JSONDecoder().decode(Pokemon.self, from: data)
+                let result = try JSONDecoder().decode(Pokemon.self, from: data)
                 DispatchQueue.main.async {
                     completion(result)
                 }
             }
-//            catch{
-//                print("Error:",error.localizedDescription)
-//            }
+            catch{
+                print("Error:",error.localizedDescription)
+            }
 
         }.resume()
         

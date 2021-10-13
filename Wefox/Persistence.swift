@@ -20,6 +20,7 @@ struct PersistenceController {
             newItem.id = 1
             newItem.weight = 0
             newItem.height = 0
+            newItem.order = 0
             newItem.front_default = ""
             newItem.base_experience = 0
         }

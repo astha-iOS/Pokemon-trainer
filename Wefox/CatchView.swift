@@ -75,6 +75,7 @@ struct CatchView: View {
         newItem.height = Int16(pokemon.height)
         newItem.base_experience = Int16(pokemon.base_experience)
         newItem.front_default = pokemon.sprites.front_default
+        newItem.order = Int16(pokemon.order)
         do {
             try viewContext.save()
             print("catch pokemon.")
@@ -87,11 +88,13 @@ struct CatchView: View {
     private func leaveIt() {
         self.presentationMode.wrappedValue.dismiss()
     }
+    
+    
 }
 
 
 struct CatchView_Previews: PreviewProvider {
     static var previews: some View {
-        CatchView(pokemon: Pokemon(id: 1, name: "", weight: 1, height: 1, base_experience: 1, sprites: Sprites.init(front_default: "")))
+        CatchView(pokemon: Pokemon(id: 1, name: "", weight: 1, height: 1, base_experience: 1, order: 1, sprites: Sprites.init(front_default: "")))
     }
 }

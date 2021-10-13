@@ -11,49 +11,60 @@ import Foundation
 import CoreData
 
 struct BackPackView: View {
-
-    @FetchRequest(entity: Item.entity(), sortDescriptors: [], predicate: NSPredicate(format: "id != %d", -1))
-
-    private var pokemons: FetchedResults<Item>
     
+    @Environment(\.managedObjectContext) private var viewContext
+
+    
+    @FetchRequest(entity: Item.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Item.order, ascending: true)],predicate: NSPredicate(format: "id != %d", -1))
+    
+    private var pokemonArray: FetchedResults<Item>
+    private var pokemon_id: Int?
     @State private var isActive = false
     
     var body: some View {
             List {
-                ForEach(pokemons) { pokemon in
-                    NavigationLink(destination: PokemonDetailView()){
+                ForEach(pokemonArray) { pokemonInfo in
+                    
+                    NavigationLink(destination: DetailView(pokemonInfo:pokemonInfo)){
                     HStack{
-                        Image(uiImage: (pokemon.front_default?.loadImage())!)
+                        Image(uiImage: (pokemonInfo.front_default?.loadImage())!)
                         .resizable()
                         .frame(width: 100, height: 100, alignment: .center)
                         .clipped()
                         .cornerRadius(10.0)
                         .aspectRatio(contentMode: .fit)
                     VStack(alignment: .leading) {
-                        Text(pokemon.name ?? "N/A")
+                        Text(pokemonInfo.name ?? "N/A")
                             .font(.headline)
                             .colorScheme(.light)
-                        Text("Weight: \(pokemon.weight)")
-                            .font(.subheadline)
                         }
                     }
                     }.navigationTitle("Pokédex")
+                        .navigationBarBackButtonHidden(true)
+                                .navigationBarItems(leading:
+                                    Button(action: {
+                                        NavigationUtil.popToRootView()
+                                    }){
+                                        HStack {
+                                            Image(systemName: "arrow.left")
+                                            Text("Back")
+                                        }
+                                })
+                    
+                    
                 }
             }
-            .toolbar {
-                ToolbarItem {
-                    Button(action: searchNew) {
-                        Label("search", systemImage: "magnifyingglass")
-                    }
-                }
-                
-            }
+            
     }
     
-    private func searchNew() {
-        self.isActive = false
-        NavigationUtil.popToRootView()
-    }
+//    func isExist(idd: Int) -> Bool {
+//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
+//        fetchRequest.predicate = NSPredicate(format: "id = %d", argumentArray: idd)
+//
+//        let res = try! viewContext.fetch(fetchRequest)
+//        return res.count > 0 ? true : false
+//    }
+    
 }
 
 struct BackPackView_Previews: PreviewProvider {
@@ -61,3 +72,4 @@ struct BackPackView_Previews: PreviewProvider {
         BackPackView()
     }
 }
+
