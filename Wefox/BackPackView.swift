@@ -19,7 +19,6 @@ struct BackPackView: View {
     var body: some View {
             List {
                 ForEach(pokemons) { pokemonInfo in
-                    
                     NavigationLink(destination: DetailView(pokemonInfo:pokemonInfo)){
                     HStack{
                         Image(uiImage: (pokemonInfo.front_default?.loadImage())!)
@@ -34,7 +33,7 @@ struct BackPackView: View {
                             .colorScheme(.light)
                         }
                     }
-                    }.navigationTitle("Pokédex")
+                    }.navigationTitle(kNavTitle)
                         .navigationBarBackButtonHidden(true)
                                 .navigationBarItems(leading:
                                     Button(action: {

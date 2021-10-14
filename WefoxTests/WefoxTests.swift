@@ -19,6 +19,7 @@ class WefoxTests: XCTestCase {
     }
 
     func tests_ApiClass() throws{
+        
         XCTAssertNotEqual("Astha", "Yadav")
     }
 }

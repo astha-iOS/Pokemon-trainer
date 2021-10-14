@@ -15,8 +15,6 @@ struct CatchView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var isActive = false
     @State private var showingAlert = false
-
-     
     let pokemon:Pokemon
     
     var body: some View {
@@ -42,8 +40,8 @@ struct CatchView: View {
               
                 HStack(spacing:30){
                     NavigationLink(destination: BackPackView(),isActive: $isActive){
-                    Button(action: catchIt) {
-                        Text("Catch it")
+                    Button(action: catchPokemon) {
+                        Text(kCatchButtonTitle)
                             .fontWeight(.regular)
                             .font(.subheadline)
                             .padding()
@@ -52,8 +50,8 @@ struct CatchView: View {
                             .cornerRadius(5)
                     }
                     }
-                    Button(action: leaveIt){
-                        Text("Leave it")
+                    Button(action: leavePokemon){
+                        Text(kLeaveButtonTitle)
                             .fontWeight(.regular)
                             .font(.subheadline)
                             .padding()
@@ -66,9 +64,9 @@ struct CatchView: View {
 
             }.alert(isPresented: $showingAlert) {
                 Alert(
-                    title: Text("AlERT"),
-                    message: Text("This pokemon has already been caught"),
-                    dismissButton: .default(Text("OK"), action: {
+                    title: Text(kAlert),
+                    message: Text(kPokemonCaught),
+                    dismissButton: .default(Text(kOK), action: {
                         self.presentationMode.wrappedValue.dismiss()
                     })
                 )
@@ -76,9 +74,14 @@ struct CatchView: View {
     }
     
     //MARK:- Catch It
-    private func catchIt() {
-        if !(isExist(id: 1)){
-            
+    private func catchPokemon() {
+        if !(isExistPokemonAlredy(id: pokemon.id)){
+            var typesNameArr = [String]()
+            for type in pokemon.types{
+                typesNameArr.append(type.type.name)
+            }
+            let typesNameStr = typesNameArr.joined(separator:",")
+
             isActive = true
             let newItem = Item(context: viewContext)
             newItem.id = Int16(pokemon.id)
@@ -88,6 +91,7 @@ struct CatchView: View {
             newItem.base_experience = Int16(pokemon.base_experience)
             newItem.front_default = pokemon.sprites.front_default
             newItem.order = Int16(pokemon.order)
+            newItem.types = typesNameStr
             do {
                 try viewContext.save()
             } catch {
@@ -99,11 +103,11 @@ struct CatchView: View {
     }
     
     //MARK:- Leave It
-    private func leaveIt() {
+    private func leavePokemon() {
         self.presentationMode.wrappedValue.dismiss()
     }
 
-    func isExist(id: Int) -> Bool {
+    func isExistPokemonAlredy(id: Int) -> Bool {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
         fetchRequest.predicate = NSPredicate(format: "id = %d", id)
         let res = try! viewContext.fetch(fetchRequest)
@@ -115,6 +119,8 @@ struct CatchView: View {
 
 struct CatchView_Previews: PreviewProvider {
     static var previews: some View {
-        CatchView(pokemon: Pokemon(id: 1, name: "", weight: 1, height: 1, base_experience: 1, order: 1, sprites: Sprites.init(front_default: "")))
+        CatchView(pokemon: Pokemon(id: 1, name: "N/A", weight: 1, height: 1, base_experience: 1, order: 1, sprites: Sprites.init(front_default: ""), types: [types.init(slot: 1, type: type(name: "N/A"))]))
+        
+     //   CatchView(pokemon: Pokemon(id: 1, name: "", weight: 1, height: 1, base_experience: 1, order: 1, sprites: Sprites.init(front_default: "")))
     }
 }

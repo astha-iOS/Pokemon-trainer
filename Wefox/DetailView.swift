@@ -31,12 +31,14 @@ struct DetailView: View {
                             .font(.headline)
                         Text("Base experience: \(pokemonInfo?.base_experience ?? 0)")
                             .font(.headline)
-                        Text("Type:")
+                        Text("Type: \(pokemonInfo?.types ?? "N/A")")
                             .font(.headline)
                     }
                 }
             }
     }
+   
+    
 }
 
 struct DetailView_Previews: PreviewProvider {

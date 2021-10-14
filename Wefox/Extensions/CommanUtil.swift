@@ -1,5 +1,5 @@
 //
-//  CommanClass.swift
+//  CommanUtil.swift
 //  Wefox
 //
 //  Created by Astha yadav on 12/10/21.
@@ -11,7 +11,6 @@ import UIKit
 extension String{
     
     func loadImage()-> UIImage{
-        
         do {
             guard let url = URL(string: self) else{
                 return UIImage()
@@ -22,13 +21,13 @@ extension String{
         }catch{
             
         }
-        
         return UIImage()
     }
 }
 
 
 struct NavigationUtil {
+    
   static func popToRootView() {
     findNavigationController(viewController: UIApplication.shared.windows.filter { $0.isKeyWindow }.first?.rootViewController)?
       .popToRootViewController(animated: true)

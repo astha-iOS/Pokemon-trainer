@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 struct Pokemon: Codable, Identifiable {
     var id : Int
@@ -16,10 +17,26 @@ struct Pokemon: Codable, Identifiable {
     var base_experience: Int
     var order:Int
     var sprites: Sprites
+    var types:[types]
     
 }
 
 struct Sprites:Codable, Identifiable{
     let id = UUID()
+ //   var id : Int
     var front_default:String
 }
+
+struct types:Codable,Identifiable{
+    let id = UUID()
+    var slot : Int
+    var type : type
+}
+
+struct type:Codable,Identifiable{
+    let id = UUID()
+    var name : String
+}
+
+
+

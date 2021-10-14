@@ -13,7 +13,7 @@ struct WefoxApp: App {
 
     var body: some Scene {
         WindowGroup {
-            SearchView(model: Pokemon(id: 1, name: "", weight: 1, height: 1,base_experience: 1, order:1, sprites: Sprites.init(front_default: ""))).environment(\.managedObjectContext, persistenceController.container.viewContext)
+            SearchView(pokemon: Pokemon(id: 1, name: "N/A", weight: 1, height: 1, base_experience: 1, order: 1, sprites: Sprites.init(front_default: ""), types: [types.init(slot: 1, type: type(name: "N/A"))])).environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

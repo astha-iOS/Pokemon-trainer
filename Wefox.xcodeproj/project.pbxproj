@@ -17,11 +17,12 @@
 		070CE2E72715937E001C8429 /* WefoxUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE2E62715937E001C8429 /* WefoxUITestsLaunchTests.swift */; };
 		070CE2F4271593B9001C8429 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE2F3271593B9001C8429 /* SearchView.swift */; };
 		070CE2F62715947D001C8429 /* CatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE2F52715947D001C8429 /* CatchView.swift */; };
-		070CE2F8271594CF001C8429 /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE2F7271594CF001C8429 /* RestClient.swift */; };
+		070CE2F8271594CF001C8429 /* PokemonRestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE2F7271594CF001C8429 /* PokemonRestClient.swift */; };
 		070CE2FA271594DB001C8429 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE2F9271594DB001C8429 /* Pokemon.swift */; };
 		070CE2FE27159FAA001C8429 /* BackPackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE2FD27159FAA001C8429 /* BackPackView.swift */; };
-		070CE3032715EC89001C8429 /* CommanUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE3022715EC89001C8429 /* CommanUse.swift */; };
+		070CE3032715EC89001C8429 /* CommanUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE3022715EC89001C8429 /* CommanUtil.swift */; };
 		0753FBB127171226000F96D4 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0753FBB027171226000F96D4 /* DetailView.swift */; };
+		07B9C35F27188E5000F1B0C8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B9C35E27188E5000F1B0C8 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,13 +56,14 @@
 		070CE2E62715937E001C8429 /* WefoxUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WefoxUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		070CE2F3271593B9001C8429 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		070CE2F52715947D001C8429 /* CatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchView.swift; sourceTree = "<group>"; };
-		070CE2F7271594CF001C8429 /* RestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
+		070CE2F7271594CF001C8429 /* PokemonRestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonRestClient.swift; sourceTree = "<group>"; };
 		070CE2F9271594DB001C8429 /* Pokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		070CE2FD27159FAA001C8429 /* BackPackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackPackView.swift; sourceTree = "<group>"; };
-		070CE3022715EC89001C8429 /* CommanUse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommanUse.swift; sourceTree = "<group>"; };
+		070CE3022715EC89001C8429 /* CommanUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommanUtil.swift; sourceTree = "<group>"; };
 		070CE304271609D2001C8429 /* .gitignore.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = .gitignore.md; sourceTree = "<group>"; };
 		070CE30527160AAF001C8429 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0753FBB027171226000F96D4 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		07B9C35E27188E5000F1B0C8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,7 +168,7 @@
 		070CE2FC27159AA5001C8429 /* RestApi */ = {
 			isa = PBXGroup;
 			children = (
-				070CE2F7271594CF001C8429 /* RestClient.swift */,
+				070CE2F7271594CF001C8429 /* PokemonRestClient.swift */,
 			);
 			path = RestApi;
 			sourceTree = "<group>";
@@ -174,7 +176,8 @@
 		070CE3012715EC64001C8429 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				070CE3022715EC89001C8429 /* CommanUse.swift */,
+				070CE3022715EC89001C8429 /* CommanUtil.swift */,
+				07B9C35E27188E5000F1B0C8 /* Constants.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -314,12 +317,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				070CE2F62715947D001C8429 /* CatchView.swift in Sources */,
-				070CE3032715EC89001C8429 /* CommanUse.swift in Sources */,
+				07B9C35F27188E5000F1B0C8 /* Constants.swift in Sources */,
+				070CE3032715EC89001C8429 /* CommanUtil.swift in Sources */,
 				070CE2FA271594DB001C8429 /* Pokemon.swift in Sources */,
 				070CE2F4271593B9001C8429 /* SearchView.swift in Sources */,
 				0753FBB127171226000F96D4 /* DetailView.swift in Sources */,
 				070CE2CE2715937E001C8429 /* Persistence.swift in Sources */,
-				070CE2F8271594CF001C8429 /* RestClient.swift in Sources */,
+				070CE2F8271594CF001C8429 /* PokemonRestClient.swift in Sources */,
 				070CE2FE27159FAA001C8429 /* BackPackView.swift in Sources */,
 				070CE2C52715937D001C8429 /* WefoxApp.swift in Sources */,
 				070CE2D12715937E001C8429 /* Wefox.xcdatamodeld in Sources */,

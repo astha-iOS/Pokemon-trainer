@@ -11,32 +11,22 @@ import Foundation
 
 struct SearchView: View {
     @State private var isActive = false
-    @State public var model : Pokemon
+    @State public var pokemon : Pokemon
     @State private var showingAlert = false
     @State private var errorMessage = String()
     
     var body: some View {
-        
         NavigationView{
-            ZStack {
-                    Image("Bg")
+            ZStack { //UIScreen.main.bounds.width
+                    Image(kSplaseLogo)
                     .resizable()
-                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                    .frame(width:SCREEN_WIDTH, height: SCREEN_HEIGHT)
                     .aspectRatio(contentMode: .fit)
                     .background(Color.red)
-            NavigationLink(destination: CatchView(pokemon: model),isActive: $isActive){
-                Button("Search",action:{
-                    let number = Int.random(in: 0...1000)
-                    RestClient.sharedInstance.findPokemonApi(randomNumber: number) { (result,error) in
-                        guard let result = result else{
-                            errorMessage = error as? String ?? ""
-                            showingAlert = true
-                            return
-                        }
-                        model = result
-                        isActive = true
-                    }
-
+            NavigationLink(destination: CatchView(pokemon: pokemon),isActive: $isActive){
+                Button(kSearchButtonTitle,action:{
+                    getPokemonApiCall()
+                    
                 }).padding(20)
                     .background(Color.black)
                     .foregroundColor(.white)
@@ -46,27 +36,44 @@ struct SearchView: View {
             .toolbar {
                 ToolbarItem {
                     NavigationLink(destination: BackPackView()){
-                        Image("backpack")
+                        Image(kBackpackLogo)
                     }
                     
                 }
             }
-        } // zstack
+        }
         }.alert(isPresented: $showingAlert) {
             Alert(
-                title: Text("AlERT"),
+                title: Text(kAlert),
                 message: Text(errorMessage),
-                dismissButton: .default(Text("OK"), action: {
+                dismissButton: .default(Text(kOK), action: {
                     
                 })
             )
+        }
+    }
+    
+    func randomNumber() -> Int{
+        let number = Int.random(in: kNumberStart...kNumberEnd)
+        return number
+    }
+    
+    func getPokemonApiCall(){
+        PokemonRestClient.sharedInstance.getPokemon(randomNumber: randomNumber()){ (result,error) in
+            guard let result = result else{
+                errorMessage = error?.localizedDescription ?? kError
+                showingAlert = true
+                return
+            }
+            pokemon = result
+            isActive = true
         }
     }
 }
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchView(model: Pokemon(id: 1, name: "N/A", weight: 1, height: 1, base_experience: 1, order: 1, sprites: Sprites.init(front_default: "")))
+        SearchView(pokemon: Pokemon(id: 1, name: "N/A", weight: 1, height: 1, base_experience: 1, order: 1, sprites: Sprites.init(front_default: ""), types: [types.init(slot: 1, type: type(name: "N/A"))]))
     }
 }
 
