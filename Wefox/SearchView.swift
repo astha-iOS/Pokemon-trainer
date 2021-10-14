@@ -12,6 +12,8 @@ import Foundation
 struct SearchView: View {
     @State private var isActive = false
     @State public var model : Pokemon
+    @State private var showingAlert = false
+    @State private var errorMessage = String()
     
     var body: some View {
         
@@ -25,7 +27,12 @@ struct SearchView: View {
             NavigationLink(destination: CatchView(pokemon: model),isActive: $isActive){
                 Button("Search",action:{
                     let number = Int.random(in: 0...1000)
-                    RestClient.sharedInstance.findPokemonApi(randomNumber: number) { (result) in
+                    RestClient.sharedInstance.findPokemonApi(randomNumber: number) { (result,error) in
+                        guard let result = result else{
+                            errorMessage = error as? String ?? ""
+                            showingAlert = true
+                            return
+                        }
                         model = result
                         isActive = true
                     }
@@ -45,6 +52,14 @@ struct SearchView: View {
                 }
             }
         } // zstack
+        }.alert(isPresented: $showingAlert) {
+            Alert(
+                title: Text("AlERT"),
+                message: Text(errorMessage),
+                dismissButton: .default(Text("OK"), action: {
+                    
+                })
+            )
         }
     }
 }

@@ -13,16 +13,12 @@ import CoreData
 struct BackPackView: View {
     
     @FetchRequest(entity: Item.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Item.order, ascending: true)],predicate: NSPredicate(format: "id != %d", -1))
-    
-    private var pokemonArray: FetchedResults<Item>
-    
-    private var pokemon_id: Int?
-    
+    private var pokemons: FetchedResults<Item>
     @State private var isActive = false
     
     var body: some View {
             List {
-                ForEach(pokemonArray) { pokemonInfo in
+                ForEach(pokemons) { pokemonInfo in
                     
                     NavigationLink(destination: DetailView(pokemonInfo:pokemonInfo)){
                     HStack{
@@ -49,15 +45,11 @@ struct BackPackView: View {
                                             Text("Back")
                                         }
                                 })
-                    
-                    
                 }
             }
             
     }
-    
-    
-    
+        
 }
 
 struct BackPackView_Previews: PreviewProvider {
