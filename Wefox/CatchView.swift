@@ -14,7 +14,8 @@ struct CatchView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.presentationMode) var presentationMode
     @State private var isActive = false
-   
+    @State private var showingAlert = false
+
      
     let pokemon:Pokemon
     
@@ -63,6 +64,14 @@ struct CatchView: View {
                     
                 }.padding(EdgeInsets(top: 0, leading: 10, bottom: 40, trailing: 10))
 
+            }.alert(isPresented: $showingAlert) {
+                Alert(
+                    title: Text("AlERT"),
+                    message: Text("This pokemon has already been caught"),
+                    dismissButton: .default(Text("OK"), action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    })
+                )
             }
     }
     
@@ -81,12 +90,11 @@ struct CatchView: View {
             newItem.order = Int16(pokemon.order)
             do {
                 try viewContext.save()
-                print("catch pokemon.")
             } catch {
                 print(error.localizedDescription)
             }
         }else{
-            print("alread catch")
+            showingAlert = true
         }
     }
     

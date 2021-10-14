@@ -22,7 +22,6 @@
 		070CE2FE27159FAA001C8429 /* BackPackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE2FD27159FAA001C8429 /* BackPackView.swift */; };
 		070CE3032715EC89001C8429 /* CommanUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE3022715EC89001C8429 /* CommanUse.swift */; };
 		0753FBB127171226000F96D4 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0753FBB027171226000F96D4 /* DetailView.swift */; };
-		0753FBB3271712F2000F96D4 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0753FBB2271712F2000F96D4 /* Alert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +62,6 @@
 		070CE304271609D2001C8429 /* .gitignore.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = .gitignore.md; sourceTree = "<group>"; };
 		070CE30527160AAF001C8429 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0753FBB027171226000F96D4 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
-		0753FBB2271712F2000F96D4 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,7 +175,6 @@
 			isa = PBXGroup;
 			children = (
 				070CE3022715EC89001C8429 /* CommanUse.swift */,
-				0753FBB2271712F2000F96D4 /* Alert.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -324,7 +321,6 @@
 				070CE2CE2715937E001C8429 /* Persistence.swift in Sources */,
 				070CE2F8271594CF001C8429 /* ApiCall.swift in Sources */,
 				070CE2FE27159FAA001C8429 /* BackPackView.swift in Sources */,
-				0753FBB3271712F2000F96D4 /* Alert.swift in Sources */,
 				070CE2C52715937D001C8429 /* WefoxApp.swift in Sources */,
 				070CE2D12715937E001C8429 /* Wefox.xcdatamodeld in Sources */,
 			);
@@ -562,7 +558,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wefox.app/Wefox";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wefox Pokédex.app/Wefox Pokédex";
 			};
 			name = Debug;
 		};
@@ -587,7 +583,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wefox.app/Wefox";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wefox Pokédex.app/Wefox Pokédex";
 			};
 			name = Release;
 		};
