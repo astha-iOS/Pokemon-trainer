@@ -7,13 +7,19 @@
 
 import Foundation
 
-class ApiCall {
+class RestClient: NSObject {
+    
+    static var sharedInstance:RestClient {
+        let instance = RestClient()
+        return instance
+    }
 
     func findPokemonApi(randomNumber:Int,completion:@escaping (Pokemon) -> ()) {
         guard let url = URL(string: "https://pokeapi.co/api/v2/pokemon/\(1)") else {
             print("Invalid url...")
             return
         }
+        
         
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data else{ return }

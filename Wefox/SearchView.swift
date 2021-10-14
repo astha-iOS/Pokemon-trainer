@@ -25,7 +25,7 @@ struct SearchView: View {
             NavigationLink(destination: CatchView(pokemon: model),isActive: $isActive){
                 Button("Search",action:{
                     let number = Int.random(in: 0...1000)
-                    ApiCall().findPokemonApi(randomNumber: number) { (result) in
+                    RestClient.sharedInstance.findPokemonApi(randomNumber: number) { (result) in
                         model = result
                         isActive = true
                     }
