@@ -26,7 +26,7 @@ struct CatchView: View {
                     .frame(width: 350, height: 250, alignment: .top)
                     .clipped()
                     .cornerRadius(10.0)
-                    .background(Color.gray)
+                    .background(Color(red: 242 / 255, green: 242 / 255, blue: 242 / 255))
                     .aspectRatio(contentMode: .fit)
 
                 VStack(alignment: .leading,spacing: 10) {
